@@ -5,3 +5,7 @@ export const storyUrl = `${baseUrl}item/`;
 export const getStoryIds = () => {
   return fetch(newStoriesUrl).then((res) => res.json());
 };
+
+export const getStory = (storyId) => {
+  return fetch(`${storyUrl + storyId}.json`).then((res) => res.json());
+};
