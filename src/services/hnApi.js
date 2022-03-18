@@ -3,7 +3,6 @@ export const newStoriesUrl = `${baseUrl}newstories.json`;
 export const storyUrl = `${baseUrl}item/`;
 
 export const getStoryIds = () => {
-  console.log("fetching");
   return fetch(newStoriesUrl).then((res) => res.json());
 };
 

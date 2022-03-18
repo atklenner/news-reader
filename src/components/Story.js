@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import { mapTime } from "../mappers/mapTime";
 import { getStory } from "../services/hnApi";
 import {
@@ -10,7 +10,7 @@ import {
 } from "../styles/StoryStyles";
 import { selectFields } from "../selectors/selectFields";
 
-export default function Story({ storyId }) {
+export const Story = memo(function Story({ storyId }) {
   const [story, setStory] = useState({});
   useEffect(() => {
     getStory(storyId).then(
@@ -25,7 +25,8 @@ export default function Story({ storyId }) {
 
       <StoryMeta>
         <span className="story__by" data-testid="story-by">
-          <StoryMetaElement color="black">By: </StoryMetaElement> {story.by}
+          <StoryMetaElement color="black">By: </StoryMetaElement>
+          {story.by}
         </span>
         <span className="story__time" data-testid="story-time">
           <StoryMetaElement color="black">Posted: </StoryMetaElement>{" "}
@@ -34,4 +35,4 @@ export default function Story({ storyId }) {
       </StoryMeta>
     </StoryWrapper>
   ) : null;
-}
+});

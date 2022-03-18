@@ -1,5 +1,5 @@
-import { useState, useEffect, memo } from "react";
-import Story from "../components/Story";
+import { useState, useEffect } from "react";
+import { Story } from "../components/Story";
 import { useInfiniteScroll } from "../hooks/useInfiniteScroll";
 import { getStoryIds } from "../services/hnApi";
 import {
