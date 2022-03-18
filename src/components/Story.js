@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
+import { mapTime } from "../mappers/mapTime";
 import { getStory } from "../services/hnApi";
 import {
   StoryWrapper,
@@ -7,7 +8,7 @@ import {
   StoryMeta,
   StoryMetaElement,
 } from "../styles/StoryStyles";
-import { selectFields } from "../utils/selectFields";
+import { selectFields } from "../selectors/selectFields";
 
 export default function Story({ storyId }) {
   const [story, setStory] = useState({});
@@ -28,7 +29,7 @@ export default function Story({ storyId }) {
         </span>
         <span className="story__time" data-testid="story-time">
           <StoryMetaElement color="black">Posted: </StoryMetaElement>{" "}
-          {story.time}
+          {mapTime(story.time)}
         </span>
       </StoryMeta>
     </StoryWrapper>
